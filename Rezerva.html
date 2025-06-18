@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECLIPSA</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: x-large;
+        }
+        .logo-container {
+            text-align: center;
+            margin-top: 20px;
+        }   
+
+        .logo {
+            width: 600px;
+            height: 300px;
+        }
+        .btn{
+            color: rgb(180, 160, 45);
+            background-color: black;
+            box-shadow: 3px 3px 5px white;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-size: large;
+        }
+        .btn:hover{
+            transform: translateY(-5px);
+        }
+        .submit{
+            cursor: pointer;
+            border: none;
+            width: 70px;
+            height: 30px;
+            font-size: large;
+        }
+        .submit:hover{
+            background-color: lightgrey;
+        }
+        h1{
+            color: rgb(190, 170, 53);
+            text-shadow: 2px 3px 5px white;
+        }
+        p{
+            color: white;
+            text-shadow: 3px 3px 5px gold;
+        }
+        @media (max-width: 768px) {
+            .row {
+            flex-direction: column;
+            text-align: center;
+        }
+            .right {
+            text-align: center;
+        }
+    }
+    </style>
+
+    <div class="logo-container">
+        <img src="logo.jpg" class="logo" alt="Logo Eclipsa"><br>
+    </div>
+    <h1>Rezerva acum o masa, pentru a ne putea vedea cat de curand!</h1>
+    <p>Noi te asteptam cu bratele deschise si luminile inchise!</p>
+    <br><br><br>
+    <section>
+        <form onsubmit="return trimiteFormularul()">
+
+            <label for="name">Nume si Prenume:  </label>
+            <input type ="text" id ="name" required><br><br>
+
+            <label for="phone" >Nr. de telefon#:</label>
+            <input type="tel" id="phone" placeholder ="0724-123-456" pattern = {0-9}[4]-{0-9}[3]-{0-9}[3] required><br><br> 
+
+            <label for="bday">Data rezervarii: </label>
+            <input type="date" id="bday" min="" required>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                const today = new Date().toISOString().split('T')[0]; 
+                document.getElementById("bday").setAttribute("min", today);
+            });
+            </script><br><br>
+
+            <label for="Mr.">Mr: </label>
+            <input type="radio" id ="Mr." value ="Mr." name="title"required>
+            <label for="Ms." > Ms.</label>
+            <input type="radio" id="Ms." value="Ms." name="title"required><br><br>
+
+            <input type = "reset" class = "submit">
+
+            <button type="submit" class ="btn">Rezerva acum</button>
+
+        </form>
+    </section>
+<script>
+    function trimiteFormularul() {
+        let nume = document.getElementById("name").value;
+        alert(`Mulțumim pentru rezervare, te asteptam!`);
+        return false;
+    }
+</script>
+
+</body>
+</html>
